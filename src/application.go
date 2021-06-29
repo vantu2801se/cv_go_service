@@ -2,7 +2,6 @@ package main
 
 import (
 	"context/application/cvservice/handlers"
-	"fmt"
 )
 
 // type singleton struct {
@@ -39,6 +38,5 @@ import (
 // }
 
 func main() {
-	fmt.Println("Say Hello")
 	handlers.HandleRequest()
 }

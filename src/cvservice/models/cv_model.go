@@ -3,12 +3,16 @@ package models
 type CVModel struct {
 	Id      int
 	Title   string
-	Content []string
+	Content []Info
+}
+type Info struct {
+	Text     string
+	Progress int
 }
 
 type CVModels []CVModel
 
-func (cvModel *CVModel) Setter(id int, title string, content []string) {
+func (cvModel *CVModel) Setter(id int, title string, content []Info) {
 	cvModel.Id = id
 	cvModel.Title = title
 	cvModel.Content = content
