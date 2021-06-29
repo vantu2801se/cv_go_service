@@ -12,13 +12,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type CVModel struct {
-	Id      int
-	Title   string
-	Content []string
-}
-type CVModels []CVModel
-
 func HandleRequest() {
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/cvmodel", createCVModel).Methods("POST")
