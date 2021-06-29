@@ -2,8 +2,7 @@
 package handlers
 
 import (
-	"context/application/cvservice/models"
-	"encoding/json"
+	"context/application/cvservice/api"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -12,26 +11,15 @@ import (
 	"github.com/gorilla/mux"
 )
 
-type CVModel struct {
-	Id      int
-	Title   string
-	Content []string
-}
-type CVModels []CVModel
-
 func HandleRequest() {
 	myRouter := mux.NewRouter().StrictSlash(true)
 	myRouter.HandleFunc("/cvmodel", createCVModel).Methods("POST")
-	myRouter.HandleFunc("/cvmodel", readCVModel).Methods("GET")
+	myRouter.HandleFunc("/cvmodel", api.ReadCVModel).Methods("GET")
+	fmt.Println("GO SERVER IS RUNNING. . . ")
 	log.Fatal(http.ListenAndServe(":8080", myRouter))
 }
 
 func createCVModel(w http.ResponseWriter, r *http.Request) {
 	reqBody, _ := ioutil.ReadAll(r.Body)
 	fmt.Fprintf(w, "%+v", string(reqBody))
-}
-func readCVModel(w http.ResponseWriter, r *http.Request) {
-	var cv models.CVModel
-	cv.Setter(1, "b", []string{"a", "b", "c"})
-	json.NewEncoder(w).Encode(cv)
 }

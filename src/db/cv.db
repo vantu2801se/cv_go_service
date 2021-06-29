@@ -1,0 +1,11 @@
+create table info(
+	id int primary key AUTO_INCREMENT,
+    txt NVARCHAR(256),
+    progress int null,
+    cvmodel_id int,
+    foreign key (cvmodel_id) references cvmodel(id)
+)
+create table cvmodel(
+    id int primary key AUTO_INCREMENT,
+    title NVARCHAR(25)
+)
