@@ -11,6 +11,5 @@ type InfoEntity struct {
 	CvmodelId  int
 	DeleteFlag bool
 }
-
 type CVEntities []CVEntity
 type InfoEntities []InfoEntity
