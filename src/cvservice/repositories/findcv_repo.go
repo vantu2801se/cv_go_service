@@ -28,14 +28,14 @@ func FindAllCVModel() (entities.CVEntities, entities.InfoEntities) {
 	}
 	// GET DATA FROM INFO TABLE
 	var infoEntities entities.InfoEntities
-	queryInfos := "SELECT * FROM info"
+	queryInfos := "SELECT * FROM info WHERE delete_flag=true"
 	infoResults, err := db.Query(queryInfos)
 	if err != nil {
 		log.Fatal(err)
 	}
 	for infoResults.Next() {
 		var info entities.InfoEntity
-		err := infoResults.Scan(&info.Id, &info.Txt, &info.Progress, &info.CvmodelId)
+		err := infoResults.Scan(&info.Id, &info.Txt, &info.Progress, &info.CvmodelId, &info.DeleteFlag)
 		if err != nil {
 			log.Fatal(err)
 		}
