@@ -16,6 +16,7 @@ func ReadCVModel(w http.ResponseWriter, r *http.Request) {
 			if infoEntities[j].CvmodelId == cvEntities[i].Id {
 				content = append(content,
 					models.Info{
+						Id:       infoEntities[j].Id,
 						Text:     infoEntities[j].Txt,
 						Progress: infoEntities[j].Progress})
 			}
