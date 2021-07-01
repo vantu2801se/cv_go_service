@@ -1,11 +1,30 @@
+//MYSQL
+create table cvmodel(
+    id int primary key AUTO_INCREMENT,
+    title NVARCHAR(25)
+)
 create table info(
 	id int primary key AUTO_INCREMENT,
     txt NVARCHAR(256),
     progress int null,
     cvmodel_id int,
+    delete_flag bool,
     foreign key (cvmodel_id) references cvmodel(id)
 )
+//POSTGRESQL
 create table cvmodel(
-    id int primary key AUTO_INCREMENT,
-    title NVARCHAR(25)
+    id SERIAL primary key,
+    title VARCHAR(25)
 )
+create table info(
+	id SERIAL primary key,
+    txt VARCHAR(256),
+    progress int null,
+    cvmodel_id int,
+    delete_flag bool,
+    foreign key (cvmodel_id) references cvmodel(id)
+)
+//INSERT INTO CVMODEL
+INSERT INTO public.cvmodel(
+	title)
+	VALUES ('TECHNICAL SKILLS');
