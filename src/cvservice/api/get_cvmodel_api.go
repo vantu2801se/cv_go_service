@@ -8,6 +8,9 @@ import (
 )
 
 func ReadCVModel(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json; charset=ascii")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type,access-control-allow-origin, access-control-allow-headers")
 	cvEntities, infoEntities := services.FindAllCVModel()
 	results := []models.CVModel{}
 	for i := 0; i < len(cvEntities); i++ {

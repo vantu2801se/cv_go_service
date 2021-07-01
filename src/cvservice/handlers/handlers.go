@@ -13,6 +13,7 @@ import (
 
 func HandleRequest() {
 	myRouter := mux.NewRouter().StrictSlash(true)
+	myRouter.Use(CORS)
 	myRouter.HandleFunc("/cvmodel", api.UpdateCV).Methods("POST")
 	myRouter.HandleFunc("/cvmodel", api.UpdateCV).Methods("PUT")
 	myRouter.HandleFunc("/cvmodel", api.ReadCVModel).Methods("GET")
